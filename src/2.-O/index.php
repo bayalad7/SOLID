@@ -1,7 +1,7 @@
 <?php
     require "../../vendor/autoload.php";
     require "tienda.php";
-    require "menu_error.php";
+    require "menu.php";
 
     /**
      * O - OCP
@@ -19,6 +19,9 @@
      * Aun cuando queramos que esa clase, método o función haga algo totalmente diferente.
      * 
      * Debemos poder extender el comportamiento de una clase, método o función sin modificarla.
+     * 
+     * Para aplicar este principio, debemos separar el comportamiento extensible detrás de una interfaz
+     * y voltea las dependencias.
      */
 
     use App\Tienda;
@@ -33,6 +36,7 @@
     $Tienda = new App\Tienda();
     $Tienda->AgregarProductos( $Productos );
     $Menu = new App\Menu();
-    echo $Menu->Ver( $Tienda->ObtenerProductos() , false );
-    echo $Menu->Ver( $Tienda->ObtenerProductos() , true );
+    echo $Menu->Ver( $Tienda->ObtenerProductos() , new App\MenuSalidaJson() );
+    echo "\n\n";
+    echo $Menu->Ver( $Tienda->ObtenerProductos() , new App\MenuSalidaTexto() );
 ?>
