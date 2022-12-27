@@ -1,0 +1,15 @@
+{
+    "name": "vendor/solid",
+    "description": "Principios SOLID",
+    "autoload": {
+        "psr-4": {
+            "Vendor\\Solid\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Benjamín Ayala"
+        }
+    ],
+    "require": {}
+}
